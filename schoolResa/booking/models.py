@@ -7,10 +7,10 @@ from django.contrib.auth.models import User
 # Create your models here.
 # Creating different choices for the courses
 COURSE_CHOICES = (
-    ("Course One", "Course One"),
-    ("Course Two", "Course Two"),
-    ("Course Three", "Course Three"),
-    ("Course Four", "Course Four")
+    ("Cours Un", "Cours Un"),
+    ("Cours Deux", "Cours Deux"),
+    ("Cours Trois", "Cours Trois"),
+    ("Cours Quatre", "Cours Quatre")
 )
 
 # Handeling time choices
@@ -38,7 +38,7 @@ class Appointment(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=True)
     service = models.CharField(
-        max_length=50, choices=COURSE_CHOICES, default="Course One")
+        max_length=50, choices=COURSE_CHOICES, default="Cours Un")
     day = models.DateField(default=datetime.now)
     time = models.CharField(
         max_length=10, choices=TIME_CHOICES, default="08h00")

@@ -71,7 +71,7 @@ def bookingSubmit(request):
 
         if service != None:
             if day <= maxDate and day >= minDate:
-                if date == 'Lundi' or date == 'Mardi' or date == 'Mercredi' or date == 'Jeudi' or date == 'Vendredi':
+                if date == 'Monday' or date == 'Tuesday' or date == 'Wednesday' or date == 'Thursday' or date == 'Friday':
                     if Appointment.objects.filter(day=day).count() < 11:
                         if Appointment.objects.filter(day=day, time=time).count() < 1:
                             AppointmentForm = Appointment.objects.get_or_create(
@@ -179,7 +179,7 @@ def userUpdateSubmit(request, id):
 
         if service != None:
             if day <= maxDate and day >= minDate:
-                if date == 'Lundi' or date == 'Mardi' or date == 'Mercredi' or date == 'Jeudi' or date == 'Vendredi':
+                if date == 'Monday' or date == 'Tuesday' or date == 'Wednesday' or date == 'Thursday' or date == 'Friday':
                     if Appointment.objects.filter(day=day).count() < 11:
                         if Appointment.objects.filter(day=day, time=time).count() < 1 or userSelectedTime == time:
                             AppointmentForm = Appointment.objects.filter(pk=id).update(
@@ -247,7 +247,7 @@ def validWeekday(days):
     for i in range(0, days):
         x = today + timedelta(days=i)
         y = x.strftime('%A')
-        if y == 'Lundi' or y == 'Mardi' or y == 'Mercredi' or y == 'Jeudi' or y == 'Vendredi':
+        if y == 'Monday' or y == 'Tuesday' or y == 'Wednesday' or y == 'Thursday' or y == 'Friday':
             weekdays.append(x.strftime('%Y-%m-%d'))
     return weekdays
 

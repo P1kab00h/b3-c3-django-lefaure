@@ -1,4 +1,4 @@
-<title>Online Booking</title>
+<title>Résa en ligne</title>
 {% extends 'layout.html' %}
 {% load static %}
 {% block body %}
@@ -7,14 +7,14 @@
 
 
 {% if user.is_authenticated %}
-<h1 class="text-center fPersian mt-3">Online Booking</h1>
+<h1 class="text-center fPersian mt-3">Résa en ligne</h1>
 
 <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black text-center m-5">
     <form method="post" action="{% url 'bookingSubmit' %}" class="me-2 ms-2" required>
         {% csrf_token %}
         
         <!--input time-->
-        <h3 class="text-center fPersian mt-4">Time:</h3>
+        <h3 class="text-center fPersian mt-4">Créneau :</h3>
         <div>
             <select class="form-select fs-3 text-center" name="time">
                 {% for time in times %}
@@ -23,7 +23,7 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary text-white mt-3 fPersian">Submit</button>
+        <button type="submit" class="btn btn-primary text-white mt-3 fPersian">Valider</button>
 
     </form>
 </div>
@@ -31,8 +31,8 @@
 {% else %}
 
 <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5">
-    <h1 class="p-2  me-3">First Sign in!</h1>
-    <a href="{% url 'login' %}" class="btn btn-primary text-white">Sign in</a>
+    <h1 class="p-2  me-3">Inscription !</h1>
+    <a href="{% url 'login' %}" class="btn btn-primary text-white">Connexion</a>
 </div>
 
 {% endif %}

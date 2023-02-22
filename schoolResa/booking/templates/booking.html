@@ -15,7 +15,7 @@
 
         <!--input service-->
         <div>
-            <h3 class="">Select Service:</h3>
+            <h3 class="">Choisissez un cours :</h3>
             <select class="form-select fs-3" name="service">
                 <option value="Course One">Cours un</option>
                 <option value="Course Two">Cours Deux</option>
@@ -25,7 +25,7 @@
         </div>
             <!--input day-->
             <div class="mt-3">
-                <h3 class="">Select Day:</h3>
+                <h3 class="">Sélectionner un jour :</h3>
                 <select class="form-select fs-3" name="day">
                     {% for validateWeekday in validateWeekdays %}
                     <option value="{{validateWeekday}}">{{validateWeekday}}</option>
@@ -42,8 +42,8 @@
 {% else %}
 
 <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 ">
-    <h1 class="p-2  me-3">You Are Not Signed in!</h1>
-    <a href="{% url 'register' %}" class="btn btn-primary shadow text-center">Sign in</a>
+    <h1 class="p-2  me-3">Vous n'êtes pas authentifié !</h1>
+    <a href="{% url 'register' %}" class="btn btn-primary shadow text-center">Connexion</a>
 </div>
 
 {% endif %}
