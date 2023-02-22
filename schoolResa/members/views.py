@@ -18,7 +18,7 @@ def login_user(request):
         else:
             # Return an 'invalid login' error message.
             ...
-            messages.success(request, "There Was An Error!")
+            messages.success(request, "Une erreur est survenue")
             return redirect('login')
     else:
         return render(request, 'authenticate/login.html', {})
@@ -26,7 +26,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, "Sign Out Successful")
+    messages.success(request, "Vous vous êtes déconnecté")
     return redirect('index')
 
 
@@ -39,7 +39,7 @@ def register_user(request):
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             login(request, user)
-            messages.success(request, "Sign Up Completed!")
+            messages.success(request, "Inscription Complète")
             return redirect('index')
     else:
         form = RegisterUserForm()

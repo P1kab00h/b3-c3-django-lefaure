@@ -1,7 +1,7 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,8 +13,8 @@
 
     {% block head %}
     {% endblock %}
-  </head>
-  <body>
+</head>
+<body>
     <header>
         <nav class="navbar bg-white navbar-white navbar-expand-lg shadow-sm">
             <div class="container-fluid">
@@ -47,12 +47,12 @@
                         {% endif %}
                         <li class="nav-item dropdown me-3 fs-5">
                             <a class="nav-link active dropdown-toggle cHover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Utilisateur
+                                Utilisateur
                             </a>
                             <ul class="dropdown-menu  border zNav">
-                              <li><a class="dropdown-item" href="{% url 'userPanel' %}">Espace Utilisateur</a></li>
-                              <li><hr class=""></li>
-                              <li><a class="dropdown-item" href="{% url 'logout' %}">Déconnexion</a></li>
+                                <li><a class="dropdown-item" href="{% url 'userPanel' %}">Espace {{ user.username }}</a></li>
+                                <li><hr class=""></li>
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">Déconnexion</a></li>
                             </ul>
                         </li>
                         {% else %}
@@ -86,9 +86,9 @@
         <div class="container-fluid pt-3">
             <section class="">
                 <div class="container text-center text-md-start mt-5">
-                  <!-- Grid row -->
-                  <div class="row mt-3 text-center">
-            
+                    <!-- Grid row -->
+                    <div class="row mt-3 text-center">
+
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
@@ -103,7 +103,7 @@
                         </p>
                     </div>
                     <!-- Grid column -->
-                    
+
                     <!-- Service links Regular -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
@@ -125,11 +125,11 @@
                         </p>
                     </div>
                     <!-- Service links Regular -->
-                  </div>
-                  <!-- Grid row -->
                 </div>
-              </section>
+                <!-- Grid row -->
+            </div>
+            </section>
         </div>
     </footer>
-  </body>
+</body>
 </html>
