@@ -35,7 +35,7 @@ def booking(request):
         request.session['day'] = day
         request.session['service'] = service
 
-        return redirect('bookinSubmit')
+        return redirect('bookingSubmit')
 
     return render(request, 'booking.html', {
         'weekdays': weekdays,
@@ -71,7 +71,7 @@ def bookingSubmit(request):
 
         if service != None:
             if day <= maxDate and day >= minDate:
-                if date == 'Monday' or date == 'Tuesday' or date == 'Wednesday' or date == 'Thursday' or date == 'Friday':
+                if date == 'Lundi' or date == 'Mardi' or date == 'Mercredi' or date == 'Jeudi' or date == 'Vendredi':
                     if Appointment.objects.filter(day=day).count() < 11:
                         if Appointment.objects.filter(day=day, time=time).count() < 1:
                             AppointmentForm = Appointment.objects.get_or_create(
@@ -179,7 +179,7 @@ def userUpdateSubmit(request, id):
 
         if service != None:
             if day <= maxDate and day >= minDate:
-                if date == 'Monday' or date == 'Tuesday' or date == 'Wednesday' or date == 'Thursday' or date == 'Friday':
+                if date == 'Lundi' or date == 'Mardi' or date == 'Mercredi' or date == 'Jeudi' or date == 'Vendredi':
                     if Appointment.objects.filter(day=day).count() < 11:
                         if Appointment.objects.filter(day=day, time=time).count() < 1 or userSelectedTime == time:
                             AppointmentForm = Appointment.objects.filter(pk=id).update(
@@ -236,7 +236,7 @@ def dayToWeekday(x):
     y = z.strftime('%A')
     return y
 
-# validWeekday() function takes an argument “days” and checks if each day in the period from Monday to Friday
+# validWeekday() function takes an argument “days” and checks if each day in the period from Lundi to Vendredi
 # then returns a list of “weekdays” of valid days.
 
 
@@ -247,13 +247,13 @@ def validWeekday(days):
     for i in range(0, days):
         x = today + timedelta(days=i)
         y = x.strftime('%A')
-        if y == 'Monday' or y == 'Tuesday' or y == 'Wednesday' or y == 'Thursday' or y == 'Friday':
+        if y == 'Lundi' or y == 'Mardi' or y == 'Mercredi' or y == 'Jeudi' or y == 'Vendredi':
             weekdays.append(x.strftime('%Y-%m-%d'))
     return weekdays
 
 # isWeekdayValid() function takes an argument “x”
 # and checks the list of days from validWeekday() if the days are full or not.
-# Then returns a list of “validateWeekdays” of weekdays that are Monday to Friday and are not completely booked.
+# Then returns a list of “validateWeekdays” of weekdays that are Lundi to Vendredi and are not completely booked.
 
 
 def isWeekdayValid(x):

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'booking',  # Adding django app name to be used
+    'booking',
+    'members',  # Adding django app name to be used
 ]
 
 MIDDLEWARE = [
